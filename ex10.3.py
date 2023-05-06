@@ -1,8 +1,8 @@
-import string
 
-# fnand = input('Enter file: ')
+
+fnand = input('Enter file:')
 try:
-    lines = open('mbox-short.txt')
+    lines = open(fnand)
 except:
     print('File cannot be opened')
     exit()
@@ -10,13 +10,13 @@ except:
 counts = dict()
 
 for line in lines:
-    # line = line.rsplit()
     line = line.split()
+    # line = line.rstrip()
+    # line = line.translate(line.maketrans(' ', ' ', string.punctuation))
+    # line = line.lower()
     for word in line:
-        word = word.split()
-        word =word.translate(word.maketrans('', '', string.punctuation))
+        word = line.split()
         for ch in word:
-            ch = ch.lower()
             if ch not in counts:
                 counts[ch] = 1
             else:
