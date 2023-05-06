@@ -1,22 +1,24 @@
 import string
 
-# fnand = input('Enter file: ')
+fnand = input('Enter file: ')
 try:
-    lines = open('mbox-short.txt')
+    lines = open(fnand)
 except:
     print('File cannot be opened')
     exit()
 
 counts = dict()
+totals = 0
+average = 0
 
 for line in lines:
-    # line = line.rsplit()
+    line = line.translate(line.maketrans('', '', string.punctuation + string.digits))
+    line = line.rstrip()
+    line = line.lower()
     line = line.split()
     for word in line:
-        word = word.split()
-        word =word.translate(word.maketrans('', '', string.punctuation))
         for ch in word:
-            ch = ch.lower()
+            totals +=1
             if ch not in counts:
                 counts[ch] = 1
             else:
@@ -28,6 +30,6 @@ for key, val in list(counts.items()):
     lst.append((key, val))
 
 lst.sort()
-
 for key, val in lst:
-    print(key, val)
+    average = round(val / totals * 100, 2)
+    print(key, 'shows up', average, 'percent or', val, 'times in', fnand)
