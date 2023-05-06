@@ -18,7 +18,7 @@ for line in lines:
     line = line.split()
     for word in line:
         for ch in word:
-            totals +=1
+            totals += 1
             if ch not in counts:
                 counts[ch] = 1
             else:
