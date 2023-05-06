@@ -17,19 +17,19 @@ for line in lines:
     line = line.lower()
     line = line.split()
     for word in line:
-        for ch in word:
+        for letter in word:
             totals += 1
-            if ch not in counts:
-                counts[ch] = 1
+            if letter not in counts:
+                counts[letter] = 1
             else:
-                counts[ch] += 1
+                counts[letter] += 1
 
-lst = list()
+letters = list()
 
 for key, val in list(counts.items()):
-    lst.append((key, val))
+    letters.append((key, val))
 
-lst.sort()
-for key, val in lst:
+letters.sort()
+for key, val in letters:
     average = round(val / totals * 100, 2)
     print(key, 'shows up', average, 'percent or', val, 'times in', fnand)
