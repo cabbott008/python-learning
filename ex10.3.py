@@ -12,9 +12,9 @@ totals = 0
 average = 0
 
 for line in lines:
-    line = line.translate(line.maketrans('', '', string.punctuation + string.digits))
+    #line = line.translate(line.maketrans('', '', string.punctuation + string.digits))
     line = line.rstrip()
-    line = line.lower()
+    #line = line.lower()
     line = line.split()
     for word in line:
         for letter in word:
@@ -33,3 +33,4 @@ letters.sort()
 for key, val in letters:
     average = round(val / totals * 100, 2)
     print(key, 'shows up', average, 'percent or', val, 'times in', fnand)
+print('Iterated though', totals, 'letters.')
